@@ -20,7 +20,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-void ls(char *path) {
+void du(char *path) {
   char buf[512], *p;
   int fd;
   struct dirent de;
@@ -70,10 +70,10 @@ int main(int argc, char *argv[]) {
   int i;
 
   if (argc < 2) {
-    ls(".");
+    du(".");
     exit();
   }
   for (i = 1; i < argc; i++)
-    ls(argv[i]);
+    du(argv[i]);
   exit();
 }
