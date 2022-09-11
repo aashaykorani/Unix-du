@@ -42,7 +42,11 @@ void du(char *path) {
     printf(1, "%d %s\n", st.size, fmtname(path));
     break;
 
-
+  case T_DIR:
+    if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
+      printf(1, "ls: path too long\n");
+      break;
+    }
     strcpy(buf, path);
     p = buf + strlen(buf);
     *p++ = '/';
@@ -55,7 +59,7 @@ void du(char *path) {
         printf(1, "ls: cannot stat %s\n", buf);
         continue;
       }
-      printf(1, "%s %d %d %d\n", fmtname(buf), st.type, st.ino, st.size);
+      printf(1, "%d %s\n", st.size, fmtname(buf));
     }
     break;
   }
