@@ -142,7 +142,6 @@ UPROGS=\
 	$U/_kill\
 	$U/_ln\
 	$U/_ls\
-	$U/_hello\
 	$U/_mkdir\
 	$U/_rm\
 	$U/_sh\
@@ -150,6 +149,8 @@ UPROGS=\
 	$U/_usertests\
 	$U/_wc\
 	$U/_zombie\
+	$U/_hello\
+	$U/_du\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
