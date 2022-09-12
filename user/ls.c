@@ -51,11 +51,9 @@ void ls(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-      printf(1,"1. This is the value for de.inum: %s\n",de.name);
       if (de.inum == 0)
         continue;
       memmove(p, de.name, DIRSIZ);
-      printf(1,"1. This is the value for de.inum: %s\n",de.name);
       p[DIRSIZ] = 0;
       if (stat(buf, &st) < 0) {
         printf(1, "ls: cannot stat %s\n", buf);

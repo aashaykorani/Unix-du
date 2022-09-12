@@ -51,6 +51,10 @@ void du(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
+      if (*de.name == '.'){
+        printf(1,"TRUE\n");
+        continue;
+      }
       if (de.inum == 0)
         continue;
       memmove(p, de.name, DIRSIZ);
