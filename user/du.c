@@ -52,12 +52,7 @@ void du(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-        printf(1,"This is the st type %s == %d\n",de.name, st.type);
-    //   if (*de.name == '.'){
-    //     printf(1,"TRUE %s\n",de.name);
-    //     continue;
-    //   }
-      if (de.inum == 0 || *de.name == '.')
+      if (de.inum == 0)
         continue;
       memmove(p, de.name, DIRSIZ);
       p[DIRSIZ] = 0;
@@ -65,9 +60,10 @@ void du(char *path) {
         printf(1, "ls: cannot stat %s\n", buf);
         continue;
       }
+      if (st.type == 2){
       totalsize += st.size;
       printf(1, "%d %s\n", st.size, fmtname(buf));
-      printf(1,"This is the st type %s == %d\n",de.name, st.type);
+      }
     }
     break;
   }
