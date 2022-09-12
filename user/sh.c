@@ -13,6 +13,17 @@
 
 #define MAXARGS 10
 
+char* strcat(char* s1, const char* s2)
+{
+  char* b = s1;
+
+  while (*s1) ++s1;
+  while (*s2) *s1++ = *s2++;
+  *s1 = 0;
+
+  return b;
+}
+
 struct cmd {
   int type;
 };
@@ -78,7 +89,7 @@ void runcmd(struct cmd *cmd) {
     if (ecmd->argv[0] == 0)
       exit();
     exec(ecmd->argv[0], ecmd->argv);
-    printf(1,"")
+    // printf(1,strcat("/", ecmd->argv[0]));
     printf(2, "exec %s failed\n", ecmd->argv[0]);
     break;
 
