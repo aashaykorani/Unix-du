@@ -25,8 +25,7 @@ void ls(char *path) {
   int fd;
   struct dirent de;
   struct stat st;
-  
-  printf(1,"This is the value for st.type %d\n", st.type);
+
   if ((fd = open(path, 0)) < 0) {
     printf(2, "ls: cannot open %s\n", path);
     return;
@@ -37,8 +36,6 @@ void ls(char *path) {
     close(fd);
     return;
   }
-
-  printf(1,"This is the value for st.type %d\n", st.type);
 
   switch (st.type) {
   case T_FILE:
