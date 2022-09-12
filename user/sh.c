@@ -88,8 +88,7 @@ void runcmd(struct cmd *cmd) {
     ecmd = (struct execcmd *)cmd;
     if (ecmd->argv[0] == 0)
       exit();
-    exec(ecmd->argv[0], ecmd->argv);
-    // printf(1,strcat("/", ecmd->argv[0]));
+    exec(strcat("/",ecmd->argv[0]), ecmd->argv);
     printf(2, "exec %s failed\n", ecmd->argv[0]);
     break;
 
