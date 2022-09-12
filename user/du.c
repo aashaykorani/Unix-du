@@ -39,7 +39,7 @@ void du(char *path) {
 
   switch (st.type) {
   case T_FILE:
-    printf(1, "%d %s\n", st.size, fmtname(path));
+    printf(1, "HERE %d %s\n", st.size, fmtname(path));
     break;
 
   case T_DIR:
@@ -59,7 +59,7 @@ void du(char *path) {
         printf(1, "ls: cannot stat %s\n", buf);
         continue;
       }
-      printf(1, "%d %s\n", st.size, fmtname(buf));
+      printf(1, "THERE %d %s\n", st.size, fmtname(buf));
     }
     break;
   }
