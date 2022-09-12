@@ -52,7 +52,7 @@ void du(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-        printf(1,"This is the st type %d\n",st.type);
+        printf(1,"This is the st type %s == %d\n",de.name, st.type);
     //   if (*de.name == '.'){
     //     printf(1,"TRUE %s\n",de.name);
     //     continue;
@@ -67,6 +67,7 @@ void du(char *path) {
       }
       totalsize += st.size;
       printf(1, "%d %s\n", st.size, fmtname(buf));
+      printf(1,"This is the st type %s == %d\n",de.name, st.type);
     }
     break;
   }
