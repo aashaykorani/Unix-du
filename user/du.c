@@ -52,7 +52,7 @@ void du(char *path) {
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
       if (*de.name == '.'){
-        printf(1,"TRUE\n");
+        printf(1,"TRUE %s\n",de.name);
         continue;
       }
       if (de.inum == 0)
