@@ -36,7 +36,7 @@ void ls(char *path) {
     close(fd);
     return;
   }
-
+  printf()
   switch (st.type) {
   case T_FILE:
     printf(1, "%s %d %d %d\n", fmtname(path), st.type, st.ino, st.size);
