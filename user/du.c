@@ -52,11 +52,12 @@ void du(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-      if (*de.name == '.'){
-        printf(1,"TRUE %s\n",de.name);
-        continue;
-      }
-      if (de.inum == 0)
+        printf(1,"This is the st type %d\n",st.type);
+    //   if (*de.name == '.'){
+    //     printf(1,"TRUE %s\n",de.name);
+    //     continue;
+    //   }
+      if (de.inum == 0 || *de.name == '.')
         continue;
       memmove(p, de.name, DIRSIZ);
       p[DIRSIZ] = 0;
