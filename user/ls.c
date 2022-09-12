@@ -51,7 +51,7 @@ void ls(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-      printf(1,"1. This is the value for de.inum: %d\n",de.inum);
+      printf(1,"2. This is the value for de.inum: %d\n",de.inum);
       if (de.inum == 0)
         continue;
       memmove(p, de.name, DIRSIZ);
