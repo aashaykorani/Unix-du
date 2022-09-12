@@ -36,7 +36,7 @@ void ls(char *path) {
     close(fd);
     return;
   }
-  printf()
+  printf(1,"1. This is the value for de.inum: %d\n",de.inum);
   switch (st.type) {
   case T_FILE:
     printf(1, "%s %d %d %d\n", fmtname(path), st.type, st.ino, st.size);
@@ -51,6 +51,7 @@ void ls(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
+      printf(1,"1. This is the value for de.inum: %d\n",de.inum);
       if (de.inum == 0)
         continue;
       memmove(p, de.name, DIRSIZ);
