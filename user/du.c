@@ -67,6 +67,7 @@ void du(char *path) {
       }
     }
     printf(1,"%d .\n",totalsize);
+    printf(1,"This is the path %s\n",path);
     break;
   }
   close(fd);
