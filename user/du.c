@@ -41,7 +41,7 @@ void du(char *path) {
   switch (st.type) {
   case T_FILE:
     printf(1, "%d %s\n", st.size, fmtname(path));
-    printf(1,"%d %s\n",path);
+    printf(1,"%d %s\n",st.size,path);
     break;
 
   case T_DIR:
