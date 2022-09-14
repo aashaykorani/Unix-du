@@ -93,7 +93,7 @@ const char * du(char *path, int k, int t) {
 
 int main(int argc, char *argv[]) {
   int i;
-  char error[10];
+  char * error[10];
 
   if (argc < 2) {
     du(".",k,t);
@@ -114,6 +114,7 @@ int main(int argc, char *argv[]) {
     }
     else{
         error = du(argv[i],k,t);
+        printf(1,"Yeh kya hai %s\n", *error);
         break;
     }
   }
