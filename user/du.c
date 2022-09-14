@@ -5,6 +5,7 @@
 
 int k = 0;
 int t = 0;
+int r = 0;
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -93,18 +94,20 @@ int main(int argc, char *argv[]) {
   int i;
 
   if (argc < 2) {
-    du(".",0,0);
+    du(".",k,t);
     exit();
   }
   for (i = 1; i < argc; i++){
     if (strcmp(argv[i],"-k")==0){
         k = 1;
-        // du(argv[argc-1],k,t);
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
         t = 1;
-        // du(argv[argc-1],k,t);
+        continue;
+    }
+    else if(strcmp(argv[i], "-r")==0){
+        r = 1;
         continue;
     }
     else{
