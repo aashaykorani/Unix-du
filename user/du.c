@@ -3,6 +3,9 @@
 #include "user.h"
 #include "kernel/fs.h"
 
+int k = 0;
+int t = 0;
+
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
   char *p;
@@ -76,10 +79,14 @@ int main(int argc, char *argv[]) {
   int i;
 
   if (argc < 2) {
-    du(".");
+    du(".",0,0);
     exit();
   }
-  for (i = 1; i < argc; i++)
-    du(argv[i]);
+  for (i = 1; i < argc; i++){
+    printf(1,"%s",argv[i]);
+    if (*argv[i] == '-k')
+    k = 1;
+    // du(argv[i],0,0);
+  }
   exit();
 }
