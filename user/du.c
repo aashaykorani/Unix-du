@@ -83,9 +83,11 @@ int main(int argc, char *argv[]) {
     exit();
   }
   for (i = 1; i < argc; i++){
-    printf(1,"%s",argv[i]);
-    if (*argv[i] == '-k')
-    k = 1;
+    if (strcmp(argv[i],"-k")==0){
+        k = 1;
+        printf(1,"This is the value of the variable %d\n")
+        printf(1,"%s\n",argv[i]);
+    }
     // du(argv[i],0,0);
   }
   exit();
