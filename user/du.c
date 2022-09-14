@@ -43,8 +43,15 @@ void du(char *path, int k, int t) {
 
   switch (st.type) {
   case T_FILE:
-    printf(1, "%d %s\n", st.size, fmtname(path));
-    printf(1,"%d %s\n",st.size,path);
+    if (k==1){
+        int blocks_occupied = st.size / BSIZE;
+        printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+        printf(1,"%d %s\n",st.size,path);
+    }
+    else{
+        printf(1, "%d %s\n", st.size, fmtname(path));
+        printf(1,"%d %s\n",st.size,path);
+    }
     break;
 
   case T_DIR:
@@ -90,6 +97,7 @@ int main(int argc, char *argv[]) {
     exit();
   }
   for (i = 1; i < argc; i++){
+      printf(1,"This is the last arg %s\n",argv[argc-1]);
     if (strcmp(argv[i],"-k")==0){
         k = 1;
         du(argv[argc-1],k,t);
