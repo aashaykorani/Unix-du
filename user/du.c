@@ -113,7 +113,7 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        error = du(argv[i],k,t);
+        * error = *du(argv[i],k,t);
         printf(1,"Yeh kya hai %s\n", *error);
         break;
     }
