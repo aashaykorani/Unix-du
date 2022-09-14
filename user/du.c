@@ -24,7 +24,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-char * du(char *path, int k, int t) {
+int du(char *path, int k, int t) {
   char buf[512], *p;
   int fd;
   struct dirent de;
@@ -32,14 +32,14 @@ char * du(char *path, int k, int t) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    // printf(2, "du: cannot open %s\n", path);
-    return "du: cannot open %s\n";
+    printf(2, "du: cannot open %s\n", path);
+    return 1;
   }
 
   if (fstat(fd, &st) < 0) {
     printf(2, "du: cannot stat %s\n", path);
     close(fd);
-    return "hey man";
+    return 2;
   }
 
   switch (st.type) {
@@ -88,6 +88,7 @@ char * du(char *path, int k, int t) {
     break;
   }
   close(fd);
+  return 3;
 }
 
 int main(int argc, char *argv[]) {
@@ -111,7 +112,10 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        char string[500] = du(argv[i],k,t);
+        int ret = du(argv[i],k,t);
+        if (ret != 3 && strcmp(argv[i],'.') == 0){
+
+        }
         break;
     }
   }
