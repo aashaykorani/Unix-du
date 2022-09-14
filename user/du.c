@@ -65,7 +65,9 @@ void du(char *path, int k, int t) {
         continue;
       }
       if (st.type == 2){
-          if (k == 1)
+          if (k == 1){
+              
+          }
       totalsize += st.size;
       printf(1, "%d %s\n", st.size, fmtname(buf));
       }
