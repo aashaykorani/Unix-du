@@ -93,6 +93,7 @@ const char * du(char *path, int k, int t) {
 
 int main(int argc, char *argv[]) {
   int i;
+  char error[20];
 
   if (argc < 2) {
     du(".",k,t);
@@ -112,7 +113,7 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        printf(1,"This is s%s\n",du(argv[i],k,t));
+        
         break;
     }
   }
