@@ -30,7 +30,7 @@ void du(char *path, int k, int t) {
   struct stat st;
   int totalsize = 0;
 
-  if ((fd = open(path, 0)) < 0) {
+  if ((fd = open(path, 0)) < 0 && k != 1) {
     printf(2, "ls: cannot open %s\n", path);
     return;
   }
@@ -66,10 +66,14 @@ void du(char *path, int k, int t) {
       }
       if (st.type == 2){
           if (k == 1){
-              
+              int blocks_occupied = st.size / BSIZE;
+              totalsize += blocks_occupied;
+              printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
           }
-      totalsize += st.size;
-      printf(1, "%d %s\n", st.size, fmtname(buf));
+          else{
+                totalsize += st.size;
+                printf(1, "%d %s\n", st.size, fmtname(buf));
+          }
       }
     }
     printf(1,"%d %s\n",totalsize,path);
