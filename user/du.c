@@ -93,6 +93,7 @@ int du(char *path, int k, int t) {
 
 int main(int argc, char *argv[]) {
   int i;
+  char error[10];
 
   if (argc < 2) {
     du(".",k,t);
