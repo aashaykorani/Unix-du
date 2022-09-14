@@ -85,8 +85,12 @@ int main(int argc, char *argv[]) {
   for (i = 1; i < argc; i++){
     if (strcmp(argv[i],"-k")==0){
         k = 1;
-        printf(1,"This is the value of the variable %d\n")
-        printf(1,"%s\n",argv[i]);
+        du(argv[i],k,t);
+    }
+    else if(strcmp(argv[i],"-t")==0){
+        t = 1;
+        isdigit
+        du(argv[i],k,t);
     }
     // du(argv[i],0,0);
   }
