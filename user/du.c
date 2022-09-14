@@ -32,14 +32,14 @@ char * du(char *path, int k, int t) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    // printf(2, "ls: cannot open %s\n", path);
-    return "ls: cannot open %s\n";
+    // printf(2, "du: cannot open %s\n", path);
+    return "du: cannot open %s\n";
   }
 
   if (fstat(fd, &st) < 0) {
-    printf(2, "ls: cannot stat %s\n", path);
+    printf(2, "du: cannot stat %s\n", path);
     close(fd);
-    return "";
+    return "hey man";
   }
 
   switch (st.type) {
@@ -57,7 +57,7 @@ char * du(char *path, int k, int t) {
 
   case T_DIR:
     if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
-      printf(1, "ls: path too long\n");
+      printf(1, "du: path too long\n");
       break;
     }
     strcpy(buf, path);
@@ -69,7 +69,7 @@ char * du(char *path, int k, int t) {
       memmove(p, de.name, DIRSIZ);
       p[DIRSIZ] = 0;
       if (stat(buf, &st) < 0) {
-        printf(1, "ls: cannot stat %s\n", buf);
+        printf(1, "du: cannot stat %s\n", buf);
         continue;
       }
       if (st.type == 2){
@@ -111,7 +111,7 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        char[] s = du(argv[i],k,t);
+        char string[500] = du(argv[i],k,t);
         break;
     }
   }
