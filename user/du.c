@@ -30,7 +30,8 @@ void du(char *path, int k, int t) {
   struct stat st;
   int totalsize = 0;
 
-  if ((fd = open(path, 0)) < 0 && k != 1) {
+  
+  if ((fd = open(path, 0)) < 0) {
     printf(2, "ls: cannot open %s\n", path);
     return;
   }
