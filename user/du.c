@@ -29,8 +29,7 @@ void du(char *path, int k, int t) {
   struct dirent de;
   struct stat st;
   int totalsize = 0;
-
-  
+ 
   if ((fd = open(path, 0)) < 0) {
     printf(2, "ls: cannot open %s\n", path);
     return;
@@ -93,13 +92,15 @@ int main(int argc, char *argv[]) {
   for (i = 1; i < argc; i++){
     if (strcmp(argv[i],"-k")==0){
         k = 1;
-        du(argv[i],k,t);
+        du(argv[argc-1],k,t);
     }
     else if(strcmp(argv[i],"-t")==0){
         t = 1;
-        du(argv[i],k,t);
+        du(argv[argc-1],k,t);
     }
-    // du(argv[i],0,0);
+    else{
+        du(argv[i],0,0);
+    }
   }
   exit();
 }
