@@ -113,9 +113,6 @@ int main(int argc, char *argv[]) {
     }
     else{
         int ret = du(argv[i],k,t);
-        if (ret != 3 && strcmp(argv[i],'.') == 0){
-
-        }
         break;
     }
   }
