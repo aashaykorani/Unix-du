@@ -93,7 +93,6 @@ const char * du(char *path, int k, int t) {
 
 int main(int argc, char *argv[]) {
   int i;
-  char * error[10];
 
   if (argc < 2) {
     du(".",k,t);
@@ -113,8 +112,11 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        * error = *du(argv[i],k,t);
-        printf(1,"Yeh kya hai %s\n", *error);
+        printf(1,"Yeh kya hai %s\n", du(argv[i],k,t));
+        if(strcmp(du(argv[i],k,t),"-lk")==0)
+        {
+            printf(1,"hi how are you");
+        }
         break;
     }
   }
