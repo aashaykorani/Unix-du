@@ -112,7 +112,7 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        int ret = du(argv[i],k,t);
+        du(argv[i],k,t);
         break;
     }
   }
