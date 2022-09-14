@@ -65,6 +65,7 @@ void du(char *path, int k, int t) {
         continue;
       }
       if (st.type == 2){
+          if (k == 1)
       totalsize += st.size;
       printf(1, "%d %s\n", st.size, fmtname(buf));
       }
@@ -89,7 +90,6 @@ int main(int argc, char *argv[]) {
     }
     else if(strcmp(argv[i],"-t")==0){
         t = 1;
-        isdigit
         du(argv[i],k,t);
     }
     // du(argv[i],0,0);
