@@ -20,7 +20,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-void du(char *path) {
+void du(char *path, int k, int t) {
   char buf[512], *p;
   int fd;
   struct dirent de;
