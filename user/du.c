@@ -46,7 +46,7 @@ void du(char *path, int k, int t) {
     if (k==1){
         int blocks_occupied = st.size / BSIZE;
         printf(1, "%d %s\n", blocks_occupied, fmtname(path));
-        printf(1,"%d %s\n",st.size,path);
+        printf(1,"%d %s\n",blocks_occupied,path);
     }
     else{
         printf(1, "%d %s\n", st.size, fmtname(path));
@@ -97,17 +97,19 @@ int main(int argc, char *argv[]) {
     exit();
   }
   for (i = 1; i < argc; i++){
-      printf(1,"This is the last arg %s\n",argv[argc-1]);
     if (strcmp(argv[i],"-k")==0){
         k = 1;
-        du(argv[argc-1],k,t);
+        // du(argv[argc-1],k,t);
+        continue;
     }
     else if(strcmp(argv[i],"-t")==0){
         t = 1;
-        du(argv[argc-1],k,t);
+        // du(argv[argc-1],k,t);
+        continue;
     }
     else{
-        du(argv[i],0,0);
+        du(argv[i],k,t);
+        break;
     }
   }
   exit();
