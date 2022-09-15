@@ -77,7 +77,10 @@ const char * du(char *path) {
       }
       if (st.type == 2){
           if(t == 1){
-
+              if(st.size > threshold){
+                  totalsize += st.size;
+                  printf(1, "%d %s\n", st.size, fmtname(buf));
+              }
           }
           else if (k == 1){
               int blocks_occupied = st.size / BSIZE;
