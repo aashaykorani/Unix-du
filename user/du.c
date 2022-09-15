@@ -7,6 +7,7 @@
 int k = 0;
 int t = 0;
 int r = 0;
+int threshold;
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -75,13 +76,13 @@ const char * du(char *path) {
         continue;
       }
       if (st.type == 2){
-          if (k == 1){
+          if(t == 1){
+
+          }
+          else if (k == 1){
               int blocks_occupied = st.size / BSIZE;
               totalsize += blocks_occupied;
               printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
-          }
-          else if(){
-
           }
           else{
                 totalsize += st.size;
@@ -116,6 +117,8 @@ int main(int argc, char *argv[]) {
         }
         t = 1;
         i+=1;
+        threshold = atoi(argv[i]);
+        // printf(1,"This is the th value %d\n",threshold);
         continue;
     }
     else if(strcmp(argv[i], "-r")==0){
