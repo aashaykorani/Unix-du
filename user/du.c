@@ -83,15 +83,14 @@ const char * du(char *path) {
               }
           }
 
-          if (t==1 && k==1){
+          else if (t==1 && k==1){
             if(st.size > threshold){
                 int blocks_occupied = st.size / BSIZE;
                 totalsize += blocks_occupied;
                 printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
             }
           }
-
-          if (k == 1){
+          else if (k == 1){
               int blocks_occupied = st.size / BSIZE;
               totalsize += blocks_occupied;
               printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
