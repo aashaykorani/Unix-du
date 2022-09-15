@@ -9,6 +9,11 @@ int r = 0;
 int cannot_open = 0;
 int cannot_stat = 0;
 
+int isdigit(c)
+{
+	return (c >= '0' && c <= '9' ? 1 : 0);
+}
+
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
   char *p;
@@ -109,8 +114,8 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
+
         t = 1;
-        
         continue;
     }
     else if(strcmp(argv[i], "-r")==0){
