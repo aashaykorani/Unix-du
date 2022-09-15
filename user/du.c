@@ -9,9 +9,19 @@ int r = 0;
 int cannot_open = 0;
 int cannot_stat = 0;
 
-int isdigit(c)
+int isdigit(int c)
 {
 	return (c >= '0' && c <= '9' ? 1 : 0);
+}
+
+int isNumber(char s[])
+{
+    for (int i = 0; s[i]!= '\0'; i++)
+    {
+        if (isdigit(s[i]) == 0)
+              return 0;
+    }
+    return 1;
 }
 
 char *fmtname(char *path) {
@@ -114,7 +124,7 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
-
+        printf(1,"Isnumber check %d\n",isNumber(argv[i+1]));
         t = 1;
         continue;
     }
