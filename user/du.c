@@ -49,13 +49,13 @@ const char * du(char *path) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    // printf(2, "du: cannot open %s\n", path);
+    printf(2, "du: cannot open %s\n", path);
     cannot_open = 1;
     return path;
   }
 
   if (fstat(fd, &st) < 0) {
-    // printf(2, "du: cannot stat %s\n", path);
+    printf(2, "du: cannot stat %s\n", path);
     cannot_stat = 1;
     close(fd);
     return path;
@@ -139,18 +139,14 @@ int main(int argc, char *argv[]) {
         continue;
     }
   }
-        // if(strcmp(du(argv[i-1]),"3")==0)
-        //     exit();
-        if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==0){
+        if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
+            printf(1,"Inside if\n");
             du(".");
             exit();
         }
         else{
+            printf(1,"Inside else\n");
             du(argv[i-1]);
-            // if(cannot_open == 1)
-            //     printf(2, "du: cannot open %s\nCheck Usage\n", argv[i-1]);
-            // else
-            //     printf(2, "du: cannot stat %s\nCheck Usage\n", argv[i-1]);
             }
   exit();
 }
