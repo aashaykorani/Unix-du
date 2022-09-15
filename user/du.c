@@ -34,6 +34,9 @@ const char * du(char *path) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
+    if(path[0]=='-'){
+        printf(2,"")
+    }
     printf(2, "du: cannot open %s\n", path);
     return path;
   }
@@ -140,7 +143,7 @@ int main(int argc, char *argv[]) {
     }
   }
         if(k>1 || t>1 || r>1){
-            printf(1,"Flag repeated.\nCheck Usage\n");
+            printf(2,"Flag repeated.\nCheck Usage\n");
             exit();
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
