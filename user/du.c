@@ -24,7 +24,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-const char * du(char *path, int k, int t) {
+const char * du(char *path) {
   char buf[512], *p;
   int fd;
   struct dirent de;
@@ -95,10 +95,12 @@ int main(int argc, char *argv[]) {
   int i;
 
   if (argc < 2) {
-    du(".",k,t);
+    du(".");
     exit();
   }
   for (i = 1; i < argc; i++){
+      int k_error = 0, t_error = 0, r_error = 0;
+      
     if (strcmp(argv[i],"-k")==0){
         k = 1;
         continue;
@@ -112,10 +114,10 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        if(strcmp(du(argv[i],k,t),"-lk")==0)
-        {
-            printf(1,"hi how are you");
-        }
+        if(strcmp(du(argv[i]),"-k")==0)
+            k_error = 1;
+        else if (strcmp(du(argv[i]),"-t")==0)
+         ;
         break;
     }
   }
