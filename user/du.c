@@ -139,18 +139,18 @@ int main(int argc, char *argv[]) {
         continue;
     }
   }
-        if(strcmp(du(argv[i-1]),"3")==0)
-            exit();
-
-        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0 || isNumber(char *s)){
+        // if(strcmp(du(argv[i-1]),"3")==0)
+        //     exit();
+        if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==0){
             du(".");
             exit();
         }
         else{
-            if(cannot_open == 1)
-                printf(2, "du: cannot open %s\nCheck Usage\n", argv[i-1]);
-            else
-                printf(2, "du: cannot stat %s\nCheck Usage\n", argv[i-1]);
+            du(argv[i-1]);
+            // if(cannot_open == 1)
+            //     printf(2, "du: cannot open %s\nCheck Usage\n", argv[i-1]);
+            // else
+            //     printf(2, "du: cannot stat %s\nCheck Usage\n", argv[i-1]);
             }
   exit();
 }
