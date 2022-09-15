@@ -6,6 +6,8 @@
 int k = 0;
 int t = 0;
 int r = 0;
+int cannot_open = 0;
+int cannot_stat = 0;
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -119,15 +121,13 @@ int main(int argc, char *argv[]) {
 //   printf(1,"Yeh result hai bc %s\n",du(argv[i-1]));
         if(strcmp(du(argv[i-1]),"3")==0)
             exit();
-        printf(1,"This is the last arg %s\n",argv[i-1]);
-        if(strcmp(du(argv[i-1]),"-k")==1 && strcmp(du(argv[i-1]),"-t")==1 && strcmp(du(argv[i-1]),"-r")==1){
-            printf(1,"Error toh hua hai\n");
-            du(argv[i-1]);
+        // printf(1,"This is the last arg %s\n",argv[i-1]);
+        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0){
+            du(".");
             exit();
         }
         else{
             printf(1,"Inside else\n");
-            du(".");
             }
   exit();
 }
