@@ -99,7 +99,6 @@ int main(int argc, char *argv[]) {
     exit();
   }
   for (i = 1; i < argc; i++){
-      int k_error = 0, t_error = 0, r_error = 0;
       
     if (strcmp(argv[i],"-k")==0){
         k = 1;
@@ -114,10 +113,12 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        if(strcmp(du(argv[i]),"-k")==0)
-            k_error = 1;
-        else if (strcmp(du(argv[i]),"-t")==0)
-         ;
+        if(strcmp(du(argv[i]),"-k")==0 || strcmp(du(argv[i]),"-t")==0 || strcmp(du(argv[i]),"-r")==0)
+            du(".");
+        else{
+            printf(1,"No one knows XD\n");
+            du(argv[argc-1])
+            }
         break;
     }
   }
