@@ -39,7 +39,7 @@ const char * du(char *path, int k, int t) {
   if (fstat(fd, &st) < 0) {
     printf(2, "du: cannot stat %s\n", path);
     close(fd);
-    return "2";
+    return path;
   }
 
   switch (st.type) {
@@ -112,7 +112,6 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        printf(1,"Yeh kya hai %s\n", du(argv[i],k,t));
         if(strcmp(du(argv[i],k,t),"-lk")==0)
         {
             printf(1,"hi how are you");
