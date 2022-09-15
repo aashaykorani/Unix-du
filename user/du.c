@@ -131,7 +131,7 @@ int main(int argc, char *argv[]) {
             if(cannot_open == 1)
                 printf(2, "du: cannot open %s\nCheck Usage\n", argv[i-1]);
             else
-             printf(2, "du: cannot stat %s\nCheck Usage\n", argv[i-1]);
+                printf(2, "du: cannot stat %s\nCheck Usage\n", argv[i-1]);
             }
   exit();
 }
