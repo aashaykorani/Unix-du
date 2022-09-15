@@ -2,25 +2,11 @@
 #include "kernel/stat.h"
 #include "user.h"
 #include "kernel/fs.h"
+#include "isNumber.h"
 
 int k = 0;
 int t = 0;
 int r = 0;
-
-int isdigit(int c)
-{
-	return (c >= '0' && c <= '9' ? 1 : 0);
-}
-
-int isNumber(char s[])
-{
-    for (int i = 0; s[i]!= '\0'; i++)
-    {
-        if (isdigit(s[i]) == 0)
-              return 0;
-    }
-    return 1;
-}
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -48,13 +34,12 @@ const char * du(char *path) {
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\n", path);
-    cannot_open = 1;
+
     return path;
   }
 
   if (fstat(fd, &st) < 0) {
     printf(2, "du: cannot stat %s\n", path);
-    cannot_stat = 1;
     close(fd);
     return path;
   }
@@ -94,6 +79,9 @@ const char * du(char *path) {
               int blocks_occupied = st.size / BSIZE;
               totalsize += blocks_occupied;
               printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+          }
+          else if(){
+
           }
           else{
                 totalsize += st.size;
@@ -139,12 +127,12 @@ int main(int argc, char *argv[]) {
     }
   }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
-            printf(1,"Inside if\n");
+            // printf(1,"Inside if\n");
             du(".");
             exit();
         }
         else{
-            printf(1,"Inside else\n");
+            // printf(1,"Inside else\n");
             du(argv[i-1]);
             }
   exit();
