@@ -113,11 +113,14 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
-        if(strcmp(du(argv[i]),"-k")==0 || strcmp(du(argv[i]),"-t")==0 || strcmp(du(argv[i]),"-r")==0)
+        printf(1,"Yeh result hai bc %s\n",du(argv[i-1]));
+        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0){
+            printf(1,"Error toh hua hai\n");
             du(".");
+        }
         else{
             printf(1,"No one knows XD\n");
-            du(argv[argc-1])
+            du(argv[i]);
             }
         break;
     }
