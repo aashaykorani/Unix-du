@@ -32,12 +32,12 @@ const char * du(char *path) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    // printf(2, "du: cannot open %s\n", path);
+    printf(2, "du: cannot open %s\n", path);
     return path;
   }
 
   if (fstat(fd, &st) < 0) {
-    // printf(2, "du: cannot stat %s\n", path);
+    printf(2, "du: cannot stat %s\n", path);
     close(fd);
     return path;
   }
@@ -117,7 +117,8 @@ int main(int argc, char *argv[]) {
     }
   }
 //   printf(1,"Yeh result hai bc %s\n",du(argv[i-1]));
-        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0){
+        printf(1,"This is the last arg %s\n",argv[i]);
+        if(strcmp(du(argv[i]),"-k")==0 || strcmp(du(argv[i]),"-t")==0 || strcmp(du(argv[i]),"-r")==0){
             // printf(1,"Error toh hua hai\n");
             du(".");
         }
