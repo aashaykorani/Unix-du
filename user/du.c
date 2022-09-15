@@ -124,7 +124,10 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
-        printf(1,"Isnumber check %d\n",isNumber(argv[i+1]));
+        if(isNumber(argv[i+1]) != 1){
+            printf(2,"Threshold value not provided.\nCheck Usage\n");
+            exit();
+        }
         t = 1;
         continue;
     }
@@ -139,7 +142,7 @@ int main(int argc, char *argv[]) {
         if(strcmp(du(argv[i-1]),"3")==0)
             exit();
 
-        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0){
+        if(strcmp(du(argv[i-1]),"-k")==0 || strcmp(du(argv[i-1]),"-t")==0 || strcmp(du(argv[i-1]),"-r")==0 || isNumber(char *s)){
             du(".");
             exit();
         }
