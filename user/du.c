@@ -110,6 +110,7 @@ int main(int argc, char *argv[]) {
     }
     else if(strcmp(argv[i],"-t")==0){
         t = 1;
+        
         continue;
     }
     else if(strcmp(argv[i], "-r")==0){
