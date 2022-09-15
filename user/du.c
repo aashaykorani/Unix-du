@@ -35,7 +35,6 @@ const char * du(char *path) {
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\n", path);
-
     return path;
   }
 
@@ -118,7 +117,7 @@ int main(int argc, char *argv[]) {
   for (i = 1; i < argc; i++){
       
     if (strcmp(argv[i],"-k")==0){
-        k = 1;
+        k += 1;
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
@@ -126,20 +125,24 @@ int main(int argc, char *argv[]) {
             printf(2,"Threshold value not provided.\nCheck Usage\n");
             exit();
         }
-        t = 1;
+        t += 1;
         i+=1;
         threshold = atoi(argv[i]);
         // printf(1,"This is the th value %d\n",threshold);
         continue;
     }
     else if(strcmp(argv[i], "-r")==0){
-        r = 1;
+        r += 1;
         continue;
     }
     else{
         continue;
     }
   }
+        if(k>1 || t>1 || r>1){
+            printf(1,"Flag repeated.\nCheck Usage\n");
+            exit();
+        }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
             // printf(1,"Inside if\n");
             du(".");
