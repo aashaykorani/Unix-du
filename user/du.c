@@ -118,9 +118,10 @@ int main(int argc, char *argv[]) {
   }
 //   printf(1,"Yeh result hai bc %s\n",du(argv[i-1]));
         printf(1,"This is the last arg %s\n",argv[i-1]);
-        if(strcmp(du(argv[i-1]),"-k")==1 || strcmp(du(argv[i-1]),"-t")==1 || strcmp(du(argv[i-1]),"-r")==1){
+        if(strcmp(du(argv[i-1]),"-k")==1 && strcmp(du(argv[i-1]),"-t")==1 && strcmp(du(argv[i-1]),"-r")==1){
             printf(1,"Error toh hua hai\n");
             du(argv[i-1]);
+            exit();
         }
         else{
             du(".");
