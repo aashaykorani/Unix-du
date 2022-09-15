@@ -6,8 +6,6 @@
 int k = 0;
 int t = 0;
 int r = 0;
-int cannot_open = 0;
-int cannot_stat = 0;
 
 int isdigit(int c)
 {
@@ -112,7 +110,6 @@ const char * du(char *path) {
 
 int main(int argc, char *argv[]) {
   int i;
-  char * last_arg;
 
   if (argc < 2) {
     du(".");
@@ -122,8 +119,6 @@ int main(int argc, char *argv[]) {
       
     if (strcmp(argv[i],"-k")==0){
         k = 1;
-        last_arg = "k";
-        printf(1,"This is the last arg %s\n",last_arg);
         continue;
     }
     else if(strcmp(argv[i],"-t")==0){
@@ -143,9 +138,6 @@ int main(int argc, char *argv[]) {
         continue;
     }
   }
-        if (last_arg == "k"){
-            ;
-        }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
             printf(1,"Inside if\n");
             du(".");
