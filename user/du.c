@@ -114,7 +114,7 @@ void du(char *path) {
       }
       else if(st.type == T_DIR){
           printf(1,"Buf = %s\n",buf);
-          if(strcmp(buf,"./.")!=0)
+          if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0)
             strcat(subdir,buf);
           printf(1,"Subdir %s\n",subdir);
       }
@@ -130,6 +130,7 @@ int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
     du(".");
+    du(subdir);
     exit();
   }
   for (i = 1; i < argc; i++){
