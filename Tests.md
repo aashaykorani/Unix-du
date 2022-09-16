@@ -7,4 +7,3 @@ Eg: `du -k` note: `du -k .` works.
 - [x] `du -k 7897`
 - [x] `du 1` -- if file name is a number.
 - [ ] What is there is no file above the threshold.
-- [ ] 
