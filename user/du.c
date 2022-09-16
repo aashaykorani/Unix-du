@@ -7,7 +7,7 @@
 int k = 0,t = 0,r = 0;
 int threshold;
 int potential_full_path = 0, slash_r = 0;
-// char subdir[15] = {'\0'};
+char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -135,12 +135,13 @@ void du(char *path) {
                     printf(1, "%d %s\n", st.size,buf);
           }
       }
-    //   else if(st.type == T_DIR){
-    //       printf(1,"Buf = %s\n",buf);
-    //       if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0)
-    //         strcat(subdir,buf);
-    //       printf(1,"Subdir %s\n",subdir);
-    //   }
+      else if(st.type == T_DIR){
+          printf(1,"Buf = %s\n",buf);
+          if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
+            du(buf);
+          }
+          printf(1,"Subdir %s\n",subdir);
+      }
     }
     if(slash_r == 1)
         printf(1,"%d %s\n",totalsize,strcat(path,"/"));
