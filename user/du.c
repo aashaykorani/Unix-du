@@ -142,7 +142,7 @@ void du(char *path) {
           if(strstr(buf,"/.") != NULL)
             continue;
           recursive_call = 1;
-          printf(1,"S")
+          printf(1,"Name = %s\nSt Type = %d\n",buf,st.type);
           du(buf);
           recursive_call = 0;
       }
