@@ -5,5 +5,5 @@ Eg: `du -k` note: `du -k .` works.
 
 
 ### Test this
-- [ x ] `du -uiuo 787`
+- [x] `du -uiuo 787`
 - [ ] `du -k 7897`
