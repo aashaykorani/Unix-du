@@ -8,6 +8,7 @@ int k = 0;
 int t = 0;
 int r = 0;
 int threshold;
+int slash = 0;
 char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
@@ -109,7 +110,10 @@ void du(char *path) {
           }
           else{
                 totalsize += st.size;
-                printf(1, "%d %s\n", st.size,fmtname(buf));
+                if(slash == 0)
+                    printf(1, "%d %s\n", st.size,fmtname(buf));
+                else
+                    printf(1, "%d %s\n", st.size,buf);
           }
       }
     //   else if(st.type == T_DIR){
@@ -174,6 +178,7 @@ int main(int argc, char *argv[]) {
         }
         else{
             // printf(1,"Inside else\n");
+            slash = 1;
             du(argv[i-1]);
             }
   exit();
