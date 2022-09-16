@@ -200,7 +200,9 @@ int main(int argc, char *argv[]) {
         else{
             // printf(1,"Inside else\n");
             slash = 1;
-            printf(1,"%s",*argv[i-1][0]);
+            if(argv[i-1][strlen(argv[i-1])-1] == '/')
+                argv[i-1][strlen(argv[i-1])-1] = '\0';
+            printf(1,"New argv = %s\n",argv[i-1]);
             du(argv[i-1]);
             }
   exit();
