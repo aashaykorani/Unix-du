@@ -4,12 +4,10 @@
 #include "kernel/fs.h"
 #include "myfuntions.h"
 
-int k = 0;
-int t = 0;
-int r = 0;
+int k = 0,t = 0,r = 0;
 int threshold;
-int slash = 0;
-char subdir[15] = {'\0'};
+int slash = 0, slash_r = 0;
+// char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -144,7 +142,10 @@ void du(char *path) {
     //       printf(1,"Subdir %s\n",subdir);
     //   }
     }
-    printf(1,"%d %s\n",totalsize,strcat(path,"/"));
+    if(slash_r == 1)
+        printf(1,"%d %s\n",totalsize,strcat(path,"/"));
+    else
+        printf(1,"%d %s\n",totalsize,path);
     break;
   }
   close(fd);
@@ -200,9 +201,11 @@ int main(int argc, char *argv[]) {
         else{
             // printf(1,"Inside else\n");
             slash = 1;
-            if(argv[i-1][strlen(argv[i-1])-1] == '/')
+            if(argv[i-1][strlen(argv[i-1])-1] == '/'){
                 argv[i-1][strlen(argv[i-1])-1] = '\0';
-            printf(1,"New argv = %s\n",argv[i-1]);
+                slash_r = 1;            
+            }
+            // printf(1,"New argv = %s\n",argv[i-1]);
             du(argv[i-1]);
             }
   exit();
