@@ -144,10 +144,10 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-          recursive_call = 1;
+        //   recursive_call = 1;
         //   printf(1,"Name = %s\nSt Type = %d\n",buf,st.type);
-          du(buf);
-          recursive_call = 0;
+          du(buf,1);
+        //   recursive_call = 0;
       }
     }
     if(r==1){
@@ -174,7 +174,7 @@ void du(char *path,int recursive_call) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
-    du(".");
+    du(".",0);
     // du(subdir);
     exit();
   }
@@ -214,7 +214,7 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
-            du(".");
+            du(".",0);
             exit();
         }
         else{
@@ -225,7 +225,7 @@ int main(int argc, char *argv[]) {
                 slash_removed = 1;            
             }
             // printf(1,"New argv = %s\n",argv[i-1]);
-            du(argv[i-1]);
+            du(argv[i-1],0);
             }
   exit();
 }
