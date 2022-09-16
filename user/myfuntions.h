@@ -18,13 +18,19 @@ int isNumber(char s[])
     return 1;
 }
 
-char* strcat(char* s1, const char* s2)
+// char* strcat(char* s1, const char* s2)
+// {
+//   char* b = s1;
+
+//   while (*s1) ++s1;
+//   while (*s2) *s1++ = *s2++;
+//   *s1 = 0;
+
+//   return b;
+// }
+
+char * strcat(char *dest, char *src)
 {
-  char* b = s1;
-
-  while (*s1) ++s1;
-  while (*s2) *s1++ = *s2++;
-  *s1 = 0;
-
-  return b;
+  strcpy (dest + strlen (dest), src);
+  return dest;
 }
