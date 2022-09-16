@@ -111,7 +111,6 @@ void du(char *path) {
                 totalsize += st.size;
                 printf(1, "%d %s\n", st.size, fmtname(buf));
           }
-      }
     }
     printf(1,"%d %s\n",totalsize,path);
     break;
