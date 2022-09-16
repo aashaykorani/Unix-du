@@ -141,6 +141,8 @@ void du(char *path,int recursive_call) {
           printf(1,"Enter %d\n",recursive_call);
           du(buf,1);
           printf(1,"Exit %d\n",recursive_call);
+          if(recursive_call == 0)
+            recursive_totalsize = 0;
       }
     }
     if(r==1)
