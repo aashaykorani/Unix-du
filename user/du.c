@@ -139,7 +139,7 @@ void du(char *path) {
           printf(1,"Buf = %s\n",buf);
           printf(1,"Strstr = %s\n",strstr(buf,"/."));
           if(strstr(buf,"/.") != NULL)
-            return;
+            continue;
           if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
             printf(1,"Inside if");
             du(buf);
