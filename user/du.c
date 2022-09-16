@@ -88,12 +88,6 @@ void du(char *path) {
         printf(1, "du: cannot stat %s\n", buf);
         continue;
       }
-      if(st.type == T_DIR){
-        // du(fmtname(buf));
-        printf(1,"\nStrcat %s\n",strcat("hii","hello"));
-        printf(1,"\nFmtname = %s\n",fmtname(buf));
-        // printf(1,"This is the name %s\n",strcat(path,fmtname(buf)));
-      }
       if (st.type == 2){
           if(t == 1 && k == 0){
               if(st.size > threshold){
@@ -129,7 +123,7 @@ void du(char *path) {
 
 int main(int argc, char *argv[]) {
   int i,n;
-
+  printf(1,"\nStrcat %s\n",strcat("hii","hello"));
   if (argc < 2) {
     du(".");
     exit();
