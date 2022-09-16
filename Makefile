@@ -206,3 +206,8 @@ launch.json: launch.json.tmpl
 	if [ -f .gdbinit ]; then rm .gdbinit; fi
 	sed -i "s/^source/# source/" ~/.gdbinit
 	sed "s/localhost:1234/localhost:$(GDBPORT)/" < $^ > .vscode/$@
+
+tests: $K/kernel fs.img xv6.img
+	./run_tests.py
+	@echo "\n\n\nCLEANING UP TESTS..."
+	make clean
