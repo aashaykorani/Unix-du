@@ -6,8 +6,9 @@
 
 int k = 0,t = 0,r = 0;
 int threshold;
+int recursive_call = 0;
 int potential_full_path = 0, slash_r = 0;
-char subdir[15] = {'\0'};
+// char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -32,7 +33,6 @@ void du(char *path) {
   struct dirent de;
   struct stat st;
   int totalsize = 0;
-  int recursive_call = 0;
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\nNo such file or directory\n", path);
@@ -129,6 +129,7 @@ void du(char *path) {
                 printf(1, "%d %s\n", blocks_occupied,buf);
           }
           else{
+                printf(1,"Recrursive call = %d\n",recursive_call);
                 totalsize += st.size;
                 if(potential_full_path == 0)
                     printf(1, "%d %s\n", st.size,fmtname(buf));
@@ -139,7 +140,9 @@ void du(char *path) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
+          recursive_call = 1;
           du(buf);
+          recursive_call = 0;
       }
     }
     if(slash_r == 1)
