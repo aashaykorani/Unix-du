@@ -32,6 +32,7 @@ void du(char *path) {
   struct dirent de;
   struct stat st;
   int totalsize = 0;
+  int recursive_call = 0;
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\nNo such file or directory\n", path);
@@ -135,16 +136,10 @@ void du(char *path) {
                     printf(1, "%d %s\n", st.size,buf);
           }
       }
-      else if(st.type == T_DIR){
-        //   printf(1,"Buf = %s\n",buf);
-        //   printf(1,"Strstr = %s\n",strstr(buf,"/."));
+      else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-          if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
-            // printf(1,"Inside if");
-            du(buf);
-          }
-        //   printf(1,"Subdir %s\n",subdir);
+          du(buf);
       }
     }
     if(slash_r == 1)
