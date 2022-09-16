@@ -113,7 +113,11 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
-          subdir = fmtname(buf);
+          subdir[0] = '.';
+          subdir[1] = '/';
+          for(int i=0;i < strlen(fmtname(buf));i++){
+              subdir[i+2] = fmtname(buf)[i];
+          }
           printf(1,"T_DIR %s\n",fmtname(buf));
       }
     }
