@@ -46,8 +46,18 @@ void du(char *path) {
 
   switch (st.type) {
   case T_FILE:
-    if(t==1 and k==0){
-
+    if(t==1 && k==0){
+        if(st.size > threshold){
+            printf(1, "%d %s\n", st.size, fmtname(path));
+            printf(1,"%d %s\n",st.size,path);
+        }
+    }
+    else if(t==1 && k==1){
+        if(st.size > threshold){
+            int blocks_occupied = st.size / BSIZE;
+            printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+            printf(1,"%d %s\n",blocks_occupied,path);
+        }
     }
     else if (k==1){
         int blocks_occupied = st.size / BSIZE;
@@ -78,14 +88,14 @@ void du(char *path) {
         continue;
       }
       if (st.type == 2){
-          if(t == 1 && k==0){
+          if(t == 1 && k == 0){
               if(st.size > threshold){
                   totalsize += st.size;
                   printf(1, "%d %s\n", st.size, fmtname(buf));
               }
           }
 
-          else if (t==1 && k==1){
+          else if (t == 1 && k == 1){
             if(st.size > threshold){
                 int blocks_occupied = st.size / BSIZE;
                 totalsize += blocks_occupied;
