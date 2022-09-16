@@ -2,7 +2,7 @@
 #include "kernel/stat.h"
 #include "user.h"
 #include "kernel/fs.h"
-#include "isNumber.h"
+#include "myfuntions.h"
 
 int k = 0;
 int t = 0;
@@ -90,7 +90,7 @@ void du(char *path) {
       }
       if(st.type == T_DIR){
         printf(1,"This is the name %s %s\n",path,fmtname(buf));
-        du(fmtname(buf));
+        du(strcat(path,fmtname(buf)));
       }
       if (st.type == 2){
           if(t == 1 && k == 0){
