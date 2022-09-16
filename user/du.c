@@ -113,7 +113,7 @@ void du(char *path) {
       }
       else if(st.type == T_DIR){
           printf(1,"T_DIR %s\n",fmtname(buf));
-          du(fmtname(buf));
+          du(".");
       }
     }
     printf(1,"%d %s\n",totalsize,path);
