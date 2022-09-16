@@ -85,6 +85,7 @@ void du(char *path) {
     break;
 
   case T_DIR:
+    // printf(1,"Yeh hai st type %d %d\n",st.type,st.size);
     if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
       printf(1, "du: path too long\n");
       break;
@@ -147,10 +148,9 @@ void du(char *path) {
           recursive_call = 0;
       }
     }
-    if(r==1){
+    printf(1,"Yeh hai st type %d %d\n",st.type,st.size);
+    if(r==1)
         recursive_totalsize += totalsize;
-        printf(1,"Yeh hai st type %d\n",st.type);
-    }
     else
         recursive_totalsize = totalsize;
     if(slash_removed == 1)
