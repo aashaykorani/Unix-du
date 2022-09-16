@@ -136,12 +136,12 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
-          printf(1,"Buf = %s\n",buf);
-          printf(1,"Strstr = %s\n",strstr(buf,"/."));
+        //   printf(1,"Buf = %s\n",buf);
+        //   printf(1,"Strstr = %s\n",strstr(buf,"/."));
           if(strstr(buf,"/.") != NULL)
             continue;
           if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
-            printf(1,"Inside if");
+            // printf(1,"Inside if");
             du(buf);
           }
         //   printf(1,"Subdir %s\n",subdir);
