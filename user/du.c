@@ -113,14 +113,7 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
-          int i = 0;
-          subdir[0] = '.';
-          subdir[1] = '/';
-          for(i=0;i < strlen(fmtname(buf));i++){
-              subdir[i+2] = fmtname(buf)[i];
-          }
-          subdir[i] = '/';
-        //   printf(1,"T_DIR %s\n",subdir);
+          du(buf);
       }
     }
     printf(1,"%d %s\n",totalsize,path);
@@ -179,6 +172,5 @@ int main(int argc, char *argv[]) {
             // printf(1,"Inside else\n");
             du(argv[i-1]);
             }
-    printf(1,"Subdir = %s\n",subdir);
   exit();
 }
