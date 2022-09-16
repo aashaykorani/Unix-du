@@ -17,3 +17,31 @@ int isNumber(char s[])
     }
     return 1;
 }
+
+char* strcat(char* s1, const char* s2)
+{
+  char* b = s1;
+
+  while (*s1) ++s1;
+  while (*s2) *s1++ = *s2++;
+  *s1 = 0;
+
+  return b;
+}
+
+// char* strcat(char* destination, const char* source)
+// {
+//     // make `ptr` point to the end of the destination string
+//     char* ptr = destination + strlen(destination);
+ 
+//     // appends characters of the source to the destination string
+//     while (*source != '\0') {
+//         *ptr++ = *source++;
+//     }
+ 
+//     // null terminate destination string
+//     *ptr = '\0';
+ 
+//     // the destination is returned by standard `strcat()`
+//     return destination;
+// }

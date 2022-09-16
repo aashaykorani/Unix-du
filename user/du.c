@@ -144,7 +144,7 @@ void du(char *path) {
     //       printf(1,"Subdir %s\n",subdir);
     //   }
     }
-    printf(1,"%d %s\n",totalsize,path);
+    printf(1,"%d %s\n",totalsize,strcat(path,"/"));
     break;
   }
   close(fd);
