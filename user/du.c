@@ -138,11 +138,11 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-          printf(1,"Enter %d\n",recursive_call);
+        //   printf(1,"Enter %d\n",recursive_call);
           du(buf,1);
-          printf(1,"Exit %d\n",recursive_call);
+        //   printf(1,"Exit %d\n",recursive_call);
           if(recursive_call == 0){
-            subdir_size = recursive_totalsize;
+            subdir_size += recursive_totalsize;
             recursive_totalsize = 0;
           }
       }
@@ -158,8 +158,8 @@ void du(char *path,int recursive_call) {
     if(slash_removed == 1)
         printf(1,"%d %s\n",recursive_totalsize+subdir_size,strcat(path,"/"));
     else
-        printf(1,"%d %s\n",recursive_totalsize,path);
-    printf(1,"Final exit %d\n",recursive_call);
+        printf(1,"%d %s\n",recursive_totalsize+subdir_size,path);
+    // printf(1,"Final exit %d\n",recursive_call);
     break;
   }
   close(fd);
