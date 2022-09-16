@@ -50,24 +50,36 @@ void du(char *path) {
   case T_FILE:
     if(t==1 && k==0){
         if(st.size > threshold){
-            printf(1, "%d %s\n", st.size, fmtname(path));
+            if(slash == 0)
+                printf(1, "%d %s\n", st.size, fmtname(path));
+            else
+                printf(1, "%d %s\n", st.size,path);
             printf(1,"%d %s\n",st.size,path);
         }
     }
     else if(t==1 && k==1){
         if(st.size > threshold){
             int blocks_occupied = st.size / BSIZE;
-            printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+            if(slash == 0)
+                printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+            else
+                printf(1, "%d %s\n", blocks_occupied,path);
             printf(1,"%d %s\n",blocks_occupied,path);
         }
     }
     else if (k==1){
         int blocks_occupied = st.size / BSIZE;
-        printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+        if(slash == 0)
+            printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+        else
+            printf(1, "%d %s\n", blocks_occupied,path);
         printf(1,"%d %s\n",blocks_occupied,path);
     }
     else{
-        printf(1, "%d %s\n", st.size, fmtname(path));
+        if(slash == 0)
+            printf(1, "%d %s\n", st.size, fmtname(path));
+        else
+            printf(1, "%d %s\n", st.size,path);
         printf(1,"%d %s\n",st.size,path);
     }
     break;
@@ -93,7 +105,8 @@ void du(char *path) {
           if(t == 1 && k == 0){
               if(st.size > threshold){
                   totalsize += st.size;
-                  printf(1, "%d %s\n", st.size, fmtname(buf));
+                  if(slash == 0)
+                    printf(1, "%d %s\n", st.size, fmtname(buf));
               }
           }
           else if (t == 1 && k == 1){
