@@ -148,11 +148,13 @@ void du(char *path) {
           recursive_call = 0;
       }
     }
-    printf(1,"Yeh hai st type %d %d\n",st.type,st.size);
     if(r==1)
         recursive_totalsize += totalsize;
     else
         recursive_totalsize = totalsize;
+    // printf(1,"Yeh hai st type %d %d\n",st.type,recursive_totalsize);
+    if(st.type == T_DIR && recursive_totalsize == 0)
+        return;
     if(slash_removed == 1)
         printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
     else
