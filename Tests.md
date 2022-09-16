@@ -7,3 +7,4 @@ Eg: `du -k` note: `du -k .` works.
 ### Test this
 - [x] `du -uiuo 787`
 - [ ] `du -k 7897`
+- [ ] `du 1` -- if file name is a number.
