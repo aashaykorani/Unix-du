@@ -89,7 +89,8 @@ void du(char *path) {
         continue;
       }
       if(st.type == T_DIR){
-        du()
+        // du(fmtname(buf));
+        printf(1,"Strcat %s\n",strcat("hii","hello"));
         printf(1,"Fmtname = %s\n",fmtname(buf));
         // printf(1,"This is the name %s\n",strcat(path,fmtname(buf)));
       }
