@@ -8,6 +8,7 @@ int k = 0,t = 0,r = 0;
 int threshold;
 int recursive_call = 0;
 int potential_full_path = 0, slash_removed = 0;
+int recursive_totalsize = 0;
 // char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
@@ -145,10 +146,14 @@ void du(char *path) {
           recursive_call = 0;
       }
     }
-    if(slash_removed == 1)
-        printf(1,"%d %s\n",totalsize,strcat(path,"/"));
+    if(r==1)
+        recursive_totalsize += totalsize;
     else
-        printf(1,"%d %s\n",totalsize,path);
+        recursive_totalsize = totalsize;
+    if(slash_removed == 1)
+        printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
+    else
+        printf(1,"%d %s\n",recursive_totalsize,path);
     break;
   }
   close(fd);
