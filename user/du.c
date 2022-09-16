@@ -26,7 +26,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-const char * du(char *path) {
+void du(char *path) {
   char buf[512], *p;
   int fd;
   struct dirent de;
@@ -35,16 +35,17 @@ const char * du(char *path) {
  
   if ((fd = open(path, 0)) < 0) {
     if(path[0]=='-'){
-        printf(2,"")
+        printf(2,"Unrecognized argument.\nCheck Usage\n");
+        return;
     }
     printf(2, "du: cannot open %s\n", path);
-    return path;
+    return;
   }
 
   if (fstat(fd, &st) < 0) {
     printf(2, "du: cannot stat %s\n", path);
     close(fd);
-    return path;
+    return;
   }
 
   switch (st.type) {
@@ -107,7 +108,7 @@ const char * du(char *path) {
     break;
   }
   close(fd);
-  return "3";
+  return;
 }
 
 int main(int argc, char *argv[]) {
