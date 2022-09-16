@@ -79,8 +79,11 @@ void du(char *path) {
     p = buf + strlen(buf);
     *p++ = '/';
     while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-      if (de.inum == 0)
+      if (de.inum == 0){
+        printf(1,"Name = %s, inum = %d\n",de.name,de.inum);
         continue;
+      }
+    //   printf(1,"This is the dir name %s\n",de.name);
       memmove(p, de.name, DIRSIZ);
       p[DIRSIZ] = 0;
       if (stat(buf, &st) < 0) {
