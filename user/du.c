@@ -8,6 +8,7 @@ int k = 0;
 int t = 0;
 int r = 0;
 int threshold;
+char subdir[15];
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -112,8 +113,8 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
+          subdir = fmtname(buf);
           printf(1,"T_DIR %s\n",fmtname(buf));
-          du(".");
       }
     }
     printf(1,"%d %s\n",totalsize,path);
