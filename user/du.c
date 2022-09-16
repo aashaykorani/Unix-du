@@ -141,21 +141,19 @@ void du(char *path,int recursive_call) {
           du(buf,1);
       }
     }
-    if(r==1){
-        // printf(1,"r1 Recursive call = %d\n",recursive_call);
+    if(r==1)
         recursive_totalsize += totalsize;
-    }
-    else{
-        // printf(1,"r0 Recursive call = %d\n",recursive_call);
+    else
         recursive_totalsize = totalsize;
-    }
-    // printf(1,"Yeh hai st type %d %d\n",st.type,recursive_totalsize);
-    if(st.type == T_DIR && recursive_totalsize == 0)
+
+    if(st.type == T_DIR && totalsize == 0)
         return;
+
     if(slash_removed == 1)
         printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
     else
         printf(1,"%d %s\n",recursive_totalsize,path);
+
     break;
   }
   close(fd);
