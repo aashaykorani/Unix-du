@@ -148,10 +148,14 @@ void du(char *path) {
           recursive_call = 0;
       }
     }
-    if(r==1)
+    if(r==1){
+        printf(1,"Recursive call = %d\n",recursive_call);
         recursive_totalsize += totalsize;
-    else
+    }
+    else{
+        printf(1,"Recursive call = %d\n",recursive_call);
         recursive_totalsize = totalsize;
+    }
     // printf(1,"Yeh hai st type %d %d\n",st.type,recursive_totalsize);
     if(st.type == T_DIR && recursive_totalsize == 0)
         return;
