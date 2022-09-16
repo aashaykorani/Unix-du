@@ -46,7 +46,10 @@ void du(char *path) {
 
   switch (st.type) {
   case T_FILE:
-    if (k==1){
+    if(t==1 and k==0){
+
+    }
+    else if (k==1){
         int blocks_occupied = st.size / BSIZE;
         printf(1, "%d %s\n", blocks_occupied, fmtname(path));
         printf(1,"%d %s\n",blocks_occupied,path);
