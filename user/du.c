@@ -123,7 +123,6 @@ void du(char *path) {
 
 int main(int argc, char *argv[]) {
   int i,n;
-  printf(1,"\nStrcat %s\n",strcat("hii","hello"));
   if (argc < 2) {
     du(".");
     exit();
