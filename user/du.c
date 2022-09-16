@@ -114,7 +114,7 @@ void du(char *path) {
       }
       else if(st.type == T_DIR){
           printf(1,"Buf = %s\n",buf);
-          if(buf == ".")           
+          if(strcmp(buf,"./.")!=0)
             strcat(subdir,buf);
           printf(1,"Subdir %s\n",subdir);
       }
