@@ -113,7 +113,8 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
-          du(buf);
+          strcpy(subdir,buf);
+          printf(1,"Subdir %s\n",subdir);
       }
     }
     printf(1,"%d %s\n",totalsize,path);
