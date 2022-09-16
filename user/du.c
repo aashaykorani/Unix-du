@@ -6,7 +6,7 @@
 
 int k = 0,t = 0,r = 0;
 int threshold;
-int recursive_call = 0;
+// int recursive_call = 0;
 int potential_full_path = 0, slash_removed = 0;
 int recursive_totalsize = 0;
 // char subdir[15] = {'\0'};
@@ -28,7 +28,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-void du(char *path) {
+void du(char *path,int recursive_call) {
   char buf[512], *p;
   int fd;
   struct dirent de;
