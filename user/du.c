@@ -153,7 +153,7 @@ void du(char *path) {
     if(slash_removed == 1)
         printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
     else
-        printf(1,"%d %s %d\n",recursive_totalsize,path,st.type);
+        printf(1,"%d %s\n",recursive_totalsize,path);
     break;
   }
   close(fd);
