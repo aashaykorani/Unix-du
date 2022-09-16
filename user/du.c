@@ -6,10 +6,8 @@
 
 int k = 0,t = 0,r = 0;
 int threshold;
-// int recursive_call = 0;
 int potential_full_path = 0, slash_removed = 0;
 int recursive_totalsize = 0;
-// char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -85,7 +83,6 @@ void du(char *path,int recursive_call) {
     break;
 
   case T_DIR:
-    // printf(1,"Yeh hai st type %d %d\n",st.type,st.size);
     if (strlen(path) + 1 + DIRSIZ + 1 > sizeof buf) {
       printf(1, "du: path too long\n");
       break;
@@ -131,12 +128,9 @@ void du(char *path,int recursive_call) {
                 printf(1, "%d %s\n", blocks_occupied,buf);
           }
           else{
-                // printf(1,"Recrursive call = %d\n",recursive_call);
                 totalsize += st.size;
-                if(potential_full_path == 0 && recursive_call == 0){
-                    printf(1,"Recrursive call = %d\n",recursive_call);
+                if(potential_full_path == 0 && recursive_call == 0)
                     printf(1, "%d %s\n", st.size,fmtname(buf));
-                }
                 else
                     printf(1, "%d %s\n", st.size,buf);
           }
@@ -144,10 +138,7 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-        //   recursive_call = 1;
-        //   printf(1,"Name = %s\nSt Type = %d\n",buf,st.type);
           du(buf,1);
-        //   recursive_call = 0;
       }
     }
     if(r==1){
