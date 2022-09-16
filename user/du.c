@@ -155,7 +155,7 @@ void du(char *path,int recursive_call) {
         printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
     else
         printf(1,"%d %s\n",recursive_totalsize,path);
-    printf(1,"Final exit %d",recursive_call);
+    printf(1,"Final exit %d\n",recursive_call);
     break;
   }
   close(fd);
