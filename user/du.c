@@ -34,11 +34,11 @@ void du(char *path) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    if(path[0]=='-'){
-        printf(2,"Unrecognized argument.\nCheck Usage\n");
-        return;
-    }
-    printf(2, "du: cannot open %s\n", path);
+    // if(path[0]=='-'){
+    //     printf(2,"Unrecognized argument.\nCheck Usage\n");
+    //     return;
+    // }
+    printf(2, "du: cannot open %s\nNo such file or directory\n", path);
     return;
   }
 
@@ -140,6 +140,10 @@ int main(int argc, char *argv[]) {
         continue;
     }
     else{
+        if(argv[i][0] == '-'){
+            printf(2,"Unrecognized argument.\nCheck Usage\n");
+            exit();
+        }
         continue;
     }
   }
