@@ -149,11 +149,11 @@ void du(char *path) {
       }
     }
     if(r==1){
-        printf(1,"Recursive call = %d\n",recursive_call);
+        // printf(1,"r1 Recursive call = %d\n",recursive_call);
         recursive_totalsize += totalsize;
     }
     else{
-        printf(1,"Recursive call = %d\n",recursive_call);
+        // printf(1,"r0 Recursive call = %d\n",recursive_call);
         recursive_totalsize = totalsize;
     }
     // printf(1,"Yeh hai st type %d %d\n",st.type,recursive_totalsize);
