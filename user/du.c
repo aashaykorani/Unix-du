@@ -138,7 +138,9 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
+          printf(1,"Enter\n");
           du(buf,1);
+          printf(1,"Exit\n");
       }
     }
     if(r==1)
