@@ -95,7 +95,6 @@ void du(char *path) {
                   printf(1, "%d %s\n", st.size, fmtname(buf));
               }
           }
-
           else if (t == 1 && k == 1){
             if(st.size > threshold){
                 int blocks_occupied = st.size / BSIZE;
