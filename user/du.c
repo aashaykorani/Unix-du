@@ -129,9 +129,9 @@ void du(char *path) {
                 printf(1, "%d %s\n", blocks_occupied,buf);
           }
           else{
-                printf(1,"Recrursive call = %d\n",recursive_call);
+                // printf(1,"Recrursive call = %d\n",recursive_call);
                 totalsize += st.size;
-                if(potential_full_path == 0)
+                if(potential_full_path == 0 && recursive_call == 0)
                     printf(1, "%d %s\n", st.size,fmtname(buf));
                 else
                     printf(1, "%d %s\n", st.size,buf);
