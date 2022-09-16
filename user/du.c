@@ -142,6 +142,7 @@ void du(char *path) {
           if(strstr(buf,"/.") != NULL)
             continue;
           recursive_call = 1;
+          printf(1,"S")
           du(buf);
           recursive_call = 0;
       }
