@@ -138,9 +138,9 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-          printf(1,"Enter\n");
+          printf(1,"Enter %d\n",recursive_call);
           du(buf,1);
-          printf(1,"Exit\n");
+          printf(1,"Exit %d\n",recursive_call);
       }
     }
     if(r==1)
@@ -155,7 +155,7 @@ void du(char *path,int recursive_call) {
         printf(1,"%d %s\n",recursive_totalsize,strcat(path,"/"));
     else
         printf(1,"%d %s\n",recursive_totalsize,path);
-
+    printf(1,"Final exit %d",recursive_call);
     break;
   }
   close(fd);
