@@ -142,13 +142,15 @@ void du(char *path) {
           if(strstr(buf,"/.") != NULL)
             continue;
           recursive_call = 1;
-          printf(1,"Name = %s\nSt Type = %d\n",buf,st.type);
+        //   printf(1,"Name = %s\nSt Type = %d\n",buf,st.type);
           du(buf);
           recursive_call = 0;
       }
     }
-    if(r==1)
+    if(r==1){
         recursive_totalsize += totalsize;
+        printf(1,"Yeh hai st type %d\n",st.type);
+    }
     else
         recursive_totalsize = totalsize;
     if(slash_removed == 1)
