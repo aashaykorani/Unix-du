@@ -108,7 +108,7 @@ void du(char *path) {
 }
 
 int main(int argc, char *argv[]) {
-  int i;
+  int i,n;
 
   if (argc < 2) {
     du(".");
@@ -127,6 +127,7 @@ int main(int argc, char *argv[]) {
         }
         t += 1;
         i+=1;
+        n=i;
         threshold = atoi(argv[i]);
         // printf(1,"This is the th value %d\n",threshold);
         continue;
@@ -147,7 +148,7 @@ int main(int argc, char *argv[]) {
             printf(2,"Flag repeated.\nCheck Usage\n");
             exit();
         }
-        if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || isNumber(argv[i-1])==1){
+        if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
             du(".");
             exit();
