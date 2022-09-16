@@ -137,6 +137,9 @@ void du(char *path) {
       }
       else if(st.type == T_DIR){
           printf(1,"Buf = %s\n",buf);
+          printf(1,"Strstr = %s\n",strstr(buf,"/."));
+          if(strstr(buf,"/.") != NULL)
+            return;
           if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
             printf(1,"Inside if");
             du(buf);

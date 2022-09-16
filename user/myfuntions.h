@@ -3,6 +3,8 @@
 #include "user.h"
 #include "kernel/fs.h"
 
+#define NULL 0
+
 int isdigit(int c)
 {
 	return (c >= '0' && c <= '9' ? 1 : 0);
@@ -86,5 +88,5 @@ char* strstr(const char* string, const char* substring)
 		b = substring;
 	}
 
-	return ;
+	return NULL;
 }
