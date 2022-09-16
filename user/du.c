@@ -8,7 +8,7 @@ int k = 0;
 int t = 0;
 int r = 0;
 int threshold;
-char subdir[15];
+char subdir[15] = {'\0'};
 
 char *fmtname(char *path) {
   static char buf[DIRSIZ + 1];
@@ -113,7 +113,8 @@ void du(char *path) {
           }
       }
       else if(st.type == T_DIR){
-          strcpy(subdir,buf);
+          if(strcmp(buf,".") == 1 && strcmp(buf,"..")==1)           
+            strcat(subdir,buf);
           printf(1,"Subdir %s\n",subdir);
       }
     }
