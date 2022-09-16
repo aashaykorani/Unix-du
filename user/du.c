@@ -107,19 +107,27 @@ void du(char *path) {
                   totalsize += st.size;
                   if(slash == 0)
                     printf(1, "%d %s\n", st.size, fmtname(buf));
+                  else
+                    printf(1, "%d %s\n", st.size,buf);
               }
           }
           else if (t == 1 && k == 1){
             if(st.size > threshold){
                 int blocks_occupied = st.size / BSIZE;
                 totalsize += blocks_occupied;
-                printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+                if(slash == 0)
+                    printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+                else
+                    printf(1, "%d %s\n", blocks_occupied,buf);
             }
           }
           else if (k == 1){
               int blocks_occupied = st.size / BSIZE;
               totalsize += blocks_occupied;
-              printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+              if(slash == 0)
+                printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+              else
+                printf(1, "%d %s\n", blocks_occupied,buf);
           }
           else{
                 totalsize += st.size;
