@@ -138,9 +138,10 @@ void du(char *path) {
       else if(st.type == T_DIR){
           printf(1,"Buf = %s\n",buf);
           if(strcmp(buf,"./.")!=0 && strcmp(buf,"./..")!=0){
+            printf(1,"Inside if");
             du(buf);
           }
-          printf(1,"Subdir %s\n",subdir);
+        //   printf(1,"Subdir %s\n",subdir);
       }
     }
     if(slash_r == 1)
