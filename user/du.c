@@ -152,6 +152,7 @@ void du(char *path,int recursive_call) {
     else
         recursive_totalsize = totalsize;
 
+    printf(1,"Type = %d, TS = %d, RTS = %d, Path = %s\n",st.type,totalsize, recursive_totalsize,path);
     if(st.type == T_DIR && totalsize == 0 && recursive_totalsize == 0)
         return;
 
