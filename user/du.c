@@ -26,13 +26,12 @@ char *fmtname(char *path) {
   return buf;
 }
 
-void du(char *path,int recursive_call) {
+void du(char *path,int recursive_call,int parent_type) {
   char buf[512], *p;
   int fd,subdir_size = 0;
   struct dirent de;
   struct stat st;
   int totalsize = 0;
-  int parent_type;
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\nNo such file or directory\n", path);
@@ -141,7 +140,7 @@ void du(char *path,int recursive_call) {
             continue;
         //   printf(1,"Type before rec call = %d\n",st.type);
           parent_type = 1;
-          du(buf,1);
+          du(buf,1,1);
           parent_type = 0;
         //   printf(1,"Type after rec call = %d\n",st.type);
           if(recursive_call == 0){
@@ -173,7 +172,7 @@ void du(char *path,int recursive_call) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
-    du(".",0);
+    du(".",0,1);
     // du(subdir);
     exit();
   }
@@ -213,7 +212,7 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
-            du(".",0);
+            du(".",0,1);
             exit();
         }
         else{
@@ -224,7 +223,7 @@ int main(int argc, char *argv[]) {
                 slash_removed = 1;            
             }
             // printf(1,"New argv = %s\n",argv[i-1]);
-            du(argv[i-1],0);
+            du(argv[i-1],0,0);
             }
   exit();
 }
