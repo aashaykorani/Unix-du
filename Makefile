@@ -151,6 +151,7 @@ UPROGS=\
 	$U/_zombie\
 	$U/_hello\
 	$U/_du\
+	$U/_casegen\
 
 fs.img: mkfs/mkfs README.md $(UPROGS)
 	./mkfs/mkfs fs.img README.md $(UPROGS)
