@@ -26,7 +26,7 @@ char *fmtname(char *path) {
   return buf;
 }
 
-void du(char *path,int recursive_call,int parent_type) {
+void du(char *path,int recursive_call) {
   char buf[512], *p;
   int fd,subdir_size = 0;
   struct dirent de;
@@ -140,7 +140,7 @@ void du(char *path,int recursive_call,int parent_type) {
             continue;
         //   printf(1,"Type before rec call = %d\n",st.type);
         //   parent_type = 1;
-          du(buf,1,1);
+          du(buf,1);
         //   parent_type = 0;
         //   printf(1,"Type after rec call = %d\n",st.type);
           if(recursive_call == 0){
@@ -154,8 +154,8 @@ void du(char *path,int recursive_call,int parent_type) {
     else
         recursive_totalsize = totalsize;
 
-    printf(1,"Parent Type = %d, Type = %d, TS = %d, RTS = %d, Path = %s\n",parent_type,st.type,totalsize, recursive_totalsize,path);
-    if(parent_type == T_DIR && totalsize == 0 && recursive_totalsize == 0)
+    printf(1,"Recursive call = %d, Type = %d, TS = %d, RTS = %d, Path = %s\n",recursive_call,st.type,totalsize, recursive_totalsize,path);
+    if(recursive_call == T_DIR && totalsize == 0 && recursive_totalsize == 0)
         return;
 
     if(slash_removed == 1)
@@ -172,7 +172,7 @@ void du(char *path,int recursive_call,int parent_type) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
-    du(".",0,0);
+    du(".",0);
     // du(subdir);
     exit();
   }
@@ -212,7 +212,7 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
-            du(".",0,0);
+            du(".",0);
             exit();
         }
         else{
@@ -223,7 +223,7 @@ int main(int argc, char *argv[]) {
                 slash_removed = 1;            
             }
             // printf(1,"New argv = %s\n",argv[i-1]);
-            du(argv[i-1],0,0);
+            du(argv[i-1],0);
             }
   exit();
 }
