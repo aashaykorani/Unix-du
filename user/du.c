@@ -152,7 +152,7 @@ void du(char *path,int recursive_call) {
     else
         recursive_totalsize = totalsize;
 
-    if(st.type == T_DIR && totalsize == 0)
+    if(st.type == T_DIR && totalsize == 0 && recursive_totalsize == 0)
         return;
 
     if(slash_removed == 1)
