@@ -32,6 +32,7 @@ void du(char *path,int recursive_call) {
   struct dirent de;
   struct stat st;
   int totalsize = 0;
+  int parent_type;
  
   if ((fd = open(path, 0)) < 0) {
     printf(2, "du: cannot open %s\nNo such file or directory\n", path);
@@ -138,9 +139,11 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-          printf(1,"Type before rec call = %d\n",st.type);
+        //   printf(1,"Type before rec call = %d\n",st.type);
+          parent_type = 1;
           du(buf,1);
-          printf(1,"Type after rec call = %d\n",st.type);
+          parent_type = 0;
+        //   printf(1,"Type after rec call = %d\n",st.type);
           if(recursive_call == 0){
             subdir_size += recursive_totalsize;
             recursive_totalsize = 0;
@@ -152,8 +155,8 @@ void du(char *path,int recursive_call) {
     else
         recursive_totalsize = totalsize;
 
-    printf(1,"Type = %d, TS = %d, RTS = %d, Path = %s\n",st.type,totalsize, recursive_totalsize,path);
-    if(st.type == T_DIR && totalsize == 0 && recursive_totalsize == 0)
+    printf(1,"Parent Type = %d, Type = %d, TS = %d, RTS = %d, Path = %s\n",parent_type,st.type,totalsize, recursive_totalsize,path);
+    if(parent_type == T_DIR && totalsize == 0 && recursive_totalsize == 0)
         return;
 
     if(slash_removed == 1)
