@@ -138,9 +138,9 @@ void du(char *path,int recursive_call) {
       else if(st.type == T_DIR && r == 1){
           if(strstr(buf,"/.") != NULL)
             continue;
-        //   printf(1,"Enter %d\n",recursive_call);
+          printf(1,"Type before rec call = %d\n",st.type);
           du(buf,1);
-        //   printf(1,"Exit %d\n",recursive_call);
+          printf(1,"Type after rec call = %d\n",st.type);
           if(recursive_call == 0){
             subdir_size += recursive_totalsize;
             recursive_totalsize = 0;
