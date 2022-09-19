@@ -139,9 +139,9 @@ void du(char *path,int recursive_call,int parent_type) {
           if(strstr(buf,"/.") != NULL)
             continue;
         //   printf(1,"Type before rec call = %d\n",st.type);
-          parent_type = 1;
+        //   parent_type = 1;
           du(buf,1,1);
-          parent_type = 0;
+        //   parent_type = 0;
         //   printf(1,"Type after rec call = %d\n",st.type);
           if(recursive_call == 0){
             subdir_size += recursive_totalsize;
@@ -172,7 +172,7 @@ void du(char *path,int recursive_call,int parent_type) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
-    du(".",0,1);
+    du(".",0,0);
     // du(subdir);
     exit();
   }
@@ -212,7 +212,7 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
-            du(".",0,1);
+            du(".",0,0);
             exit();
         }
         else{
