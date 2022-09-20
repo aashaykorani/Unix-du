@@ -6,7 +6,7 @@
 
 int k = 0,t = 0,r = 0;
 int threshold;
-int potential_full_path = 0, slash_removed = 0;
+int slash_removed = 0;
 int recursive_totalsize = 0;
 
 char *fmtname(char *path) {
@@ -48,9 +48,9 @@ void du(char *path,int recursive_call) {
   case T_FILE:
     if(t==1 && k==0){
         if(st.size > threshold){
-            if(potential_full_path == 0 && recursive_call == 0)
-                printf(1, "%d %s\n", st.size, fmtname(path));
-            else
+            // if(potential_full_path == 0 && recursive_call == 0)
+            //     printf(1, "%d %s\n", st.size, fmtname(path));
+            // else
                 printf(1, "%d %s\n", st.size,path);
             printf(1,"%d %s\n",st.size,path);
         }
@@ -58,25 +58,25 @@ void du(char *path,int recursive_call) {
     else if(t==1 && k==1){
         if(st.size > threshold){
             int blocks_occupied = st.size / BSIZE;
-            if(potential_full_path == 0 && recursive_call == 0)
-                printf(1, "%d %s\n", blocks_occupied, fmtname(path));
-            else
+            // if(potential_full_path == 0 && recursive_call == 0)
+            //     printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+            // else
                 printf(1, "%d %s\n", blocks_occupied,path);
             printf(1,"%d %s\n",blocks_occupied,path);
         }
     }
     else if (k==1){
         int blocks_occupied = st.size / BSIZE;
-        if(potential_full_path == 0 && recursive_call == 0)
-            printf(1, "%d %s\n", blocks_occupied, fmtname(path));
-        else
+        // if(potential_full_path == 0 && recursive_call == 0)
+        //     printf(1, "%d %s\n", blocks_occupied, fmtname(path));
+        // else
             printf(1, "%d %s\n", blocks_occupied,path);
         printf(1,"%d %s\n",blocks_occupied,path);
     }
     else{
-        if(potential_full_path == 0 && recursive_call == 0)
-            printf(1, "%d %s\n", st.size, fmtname(path));
-        else
+        // if(potential_full_path == 0 && recursive_call == 0)
+        //     printf(1, "%d %s\n", st.size, fmtname(path));
+        // else
             printf(1, "%d %s\n", st.size,path);
         printf(1,"%d %s\n",st.size,path);
     }
@@ -103,9 +103,9 @@ void du(char *path,int recursive_call) {
           if(t == 1 && k == 0){
               if(st.size > threshold){
                   totalsize += st.size;
-                  if(potential_full_path == 0 && recursive_call == 0)
-                    printf(1, "%d %s\n", st.size, fmtname(buf));
-                  else
+                //   if(potential_full_path == 0 && recursive_call == 0)
+                //     printf(1, "%d %s\n", st.size, fmtname(buf));
+                //   else
                     printf(1, "%d %s\n", st.size,buf);
               }
           }
@@ -113,25 +113,25 @@ void du(char *path,int recursive_call) {
             if(st.size > threshold){
                 int blocks_occupied = st.size / BSIZE;
                 totalsize += blocks_occupied;
-                if(potential_full_path == 0 && recursive_call == 0)
-                    printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
-                else
+                // if(potential_full_path == 0 && recursive_call == 0)
+                //     printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+                // else
                     printf(1, "%d %s\n", blocks_occupied,buf);
             }
           }
           else if (k == 1){
               int blocks_occupied = st.size / BSIZE;
               totalsize += blocks_occupied;
-              if(potential_full_path == 0 && recursive_call == 0)
-                printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
-              else
+            //   if(potential_full_path == 0 && recursive_call == 0)
+            //     printf(1, "%d %s\n", blocks_occupied, fmtname(buf));
+            //   else
                 printf(1, "%d %s\n", blocks_occupied,buf);
           }
           else{
                 totalsize += st.size;
-                if(potential_full_path == 0 && recursive_call == 0)
-                    printf(1, "%d %s\n", st.size,fmtname(buf));
-                else
+                // if(potential_full_path == 0 && recursive_call == 0)
+                //     printf(1, "%d %s\n", st.size,fmtname(buf));
+                // else
                     printf(1, "%d %s\n", st.size,buf);
           }
       }
@@ -172,7 +172,7 @@ void du(char *path,int recursive_call) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
-    potential_full_path = 1;
+    // potential_full_path = 1;
     du(".",0);
     exit();
   }
@@ -212,13 +212,13 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
-            potential_full_path = 1;
+            // potential_full_path = 1;
             du(".",0);
             exit();
         }
         else{
             // printf(1,"Inside else\n");
-            potential_full_path = 1;
+            // potential_full_path = 1;
             if(argv[i-1][strlen(argv[i-1])-1] == '/'){
                 argv[i-1][strlen(argv[i-1])-1] = '\0';
                 slash_removed = 1;            
