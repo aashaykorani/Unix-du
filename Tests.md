@@ -13,3 +13,6 @@ Eg: `du -k` note: `du -k .` works.
 > 49100 ./test
 > 24 ./aa/hey
 > 49124 ./aa
+
+- [ ] `du test -r`
+- [ ] `du . -r`

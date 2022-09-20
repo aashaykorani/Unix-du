@@ -172,6 +172,7 @@ void du(char *path,int recursive_call) {
 int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
+    potential_full_path = 1;
     du(".",0);
     exit();
   }
@@ -211,6 +212,7 @@ int main(int argc, char *argv[]) {
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
             // printf(1,"Inside if\n");
+            potential_full_path = 1;
             du(".",0);
             exit();
         }
