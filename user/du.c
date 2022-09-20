@@ -173,7 +173,6 @@ int main(int argc, char *argv[]) {
   int i,n;
   if (argc < 2) {
     du(".",0);
-    // du(subdir);
     exit();
   }
   for (i = 1; i < argc; i++){
