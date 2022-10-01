@@ -200,7 +200,7 @@ int main(int argc, char *argv[]) {
     }
     else{
         if(argv[i][0] == '-'){
-            printf(2,"Unrecognized argument.\nCheck Usage\n");
+            printf(2,"Check Usage.\n");
             exit();
         }
         continue;
