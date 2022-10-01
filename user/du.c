@@ -184,7 +184,7 @@ int main(int argc, char *argv[]) {
     }
     else if(strcmp(argv[i],"-t")==0){
         if(isNumber(argv[i+1]) != 1){
-            printf(2,"Threshold value not provided.\nCheck Usage\n");
+            printf(2,"check usage.\n");
             exit();
         }
         t += 1;
@@ -200,14 +200,14 @@ int main(int argc, char *argv[]) {
     }
     else{
         if(argv[i][0] == '-'){
-            printf(2,"Check Usage.\n");
+            printf(2,"check usage.\n");
             exit();
         }
         continue;
     }
   }
         if(k>1 || t>1 || r>1){
-            printf(2,"Flag repeated.\nCheck Usage\n");
+            printf(2,"check usage.\n");
             exit();
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
