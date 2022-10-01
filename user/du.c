@@ -211,14 +211,10 @@ int main(int argc, char *argv[]) {
             exit();
         }
         if(strcmp(argv[i-1],"-k")==0 || strcmp(argv[i-1],"-t")==0 || strcmp(argv[i-1],"-r")==0 || argv[i-1]==argv[n]){
-            // printf(1,"Inside if\n");
-            // potential_full_path = 1;
             du(".",0);
             exit();
         }
         else{
-            // printf(1,"Inside else\n");
-            // potential_full_path = 1;
             if(argv[i-1][strlen(argv[i-1])-1] == '/'){
                 argv[i-1][strlen(argv[i-1])-1] = '\0';
                 slash_removed = 1;            
