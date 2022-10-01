@@ -34,7 +34,7 @@ void du(char *path,int recursive_call) {
   int totalsize = 0;
  
   if ((fd = open(path, 0)) < 0) {
-    printf(2, "du: cannot open %s\nNo such file or directory\n", path);
+    printf(2, "du: cannot open %s\n", path);
     return;
   }
 
