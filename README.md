@@ -1,4 +1,4 @@
-# Implementing du program
+# Implementing du program for XV6
 
 <b>Objective :</b>
 Create a user program named “du” that prints a list of the files in the current directory (where the program was run), with their on-disk size in bytes.  The final line prints the sum of all of the sizes of the files within the directory.
