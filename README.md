@@ -1,4 +1,17 @@
-# VSCode Integration
+# Implementing du program
+
+<b>Objective :</b>
+Create a user program named “du” that prints a list of the files in the current directory (where the program was run), with their on-disk size in bytes.  The final line prints the sum of all of the sizes of the files within the directory.
+
+Add functionality to your prior du program so that it can handle various combinations of the following flags/arguments: 
+
+> `-k` Report the number of blocks each entry is allocated in the filesystem (instead of bytes).</br>
+ `-t` [threshold] Filter files based on a lower-bound threshold of > [threshold] bytes.</br>
+ `[file | directory]` Run the command on a specific file, or on a different directory than where it was originally called.</br>
+ `-r` Recursively follow all subdirectories, outputting entries for each of their files, and including an output line for each subdirectory total.</br>
+
+## Code
+Click [here](https://github.com/aashaykorani/du/blob/main/user/du.c) to see the code for the du program.
 
 ## Compiling
 If you are using the class vm, to compile, just run `make xv6.img` in the project directory. That will build xv6.img. Assuimging that was successful, you can then run xv6 by running `make qemu`. If you make changes to any xv6, you will likely need to first clean out the "stale" binaries before rebuilding xv6.img. You can clean your build environment with `make clean`.
